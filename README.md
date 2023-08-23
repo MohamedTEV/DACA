@@ -23,31 +23,15 @@ Navigate to the main directory:
 cd DACA
 ```
 
-## Option 1: Conda
-
-Install requirements.txt in a
-[**Python>=3.7.0**](https://www.python.org/) environment, including
-[**PyTorch>=1.7**](https://pytorch.org/get-started/locally/). The environment can be installed and activated with:
-
+Create environment and install dependencies:
 ```bash
-conda create --name ConfMix python=3.7
-conda activate ConfMix
+conda create --name daca python=3.7
+conda activate daca
 pip install -r requirements.txt  # install
 ```
 
-## Option 2: Docker
 
-Use the Dockerfile to build the docker image:
 
-```bash
-docker build -t confmix:1.0 -f utils/docker/Dockerfile .
-```
-
-Run the docker image mounting the root directory to `/usr/src/app` in the docker container:
-
-```bash
-docker run -it --gpus all --ipc=host -v /path/to/directory/ConfMix:/usr/src/app confmix:1.0 /bin/bash
-```
 
 # Dataset
 
