@@ -1,7 +1,7 @@
 # Detect, Augment, Compose, and Adapt: Four Steps for Unsupervised Domain Adaptation in Object Detection
 
 <p align="center">
-  <img style="width: 50%" src="pipeline/png">
+  <img style="width: 50%" src="pipeline/teaser.png">
 </p>
 <br>
 
