@@ -9,7 +9,7 @@
 > Mohamed Lamine Mekhalfi, Davide Boscaini, Fabio Poiesi <br>
 > **BMVC 2023**
 
-> Paper: [ArXiv to be uploaded](TBA) <br>
+> Paper: [ArXiv to be uploaded soon!](TBA) <br>
 
 > **Abstract:** *Unsupervised domain adaptation (UDA) plays a crucial role in object detection when adapting a source-trained detector to a target domain without annotated data. In this paper, we propose a novel and effective four-step UDA approach that leverages self- supervision and trains source and target data concurrently. We harness self-supervised learning to mitigate the lack of ground truth in the target domain. Our method consists of the following steps: (1) identify the region with the highest-confidence set of detections in each target image, which serve as our pseudo-labels; (2) crop the identified region and generate a collection of its augmented versions; (3) combine these latter into a com- posite image; (4) adapt the network to the target domain using the composed image. Through extensive experiments under cross-camera, cross-weather, and synthetic-to-real scenarios, our approach achieves state-of-the-art performance, improving upon the near- est competitor by more than 2% in terms of mean Average Precision (mAP). The source code will be made publicly available upon publication.*
 
