@@ -47,17 +47,17 @@ The images should be placed inside dataset/images/train (e.g., cityscapes/images
 Training DACA undergoes two steps, namely (i) a pre-adaptation in which the detector is trained on the source dataset only, and (ii) adaptation in which the model departs from the weights of previous step and performs adaptation. Oracle score is regarded as an 'upper bound' performance where the model is trained on the target dataset using groundtruth. For the pretrained YOLO weights, please visit [YOLOv5](https://github.com/ultralytics/yolov5/releases). Each of the previous operations, besides the validation step, can be executed by running the following bash scripts:
 ## pre-adaptation
 ```bash
-Cityscapes(source) -> Foggy Cityscapes(target):
+Cityscapes(source):
 python train.py --name cityscapes --epochs 20 --data data/cityscapes2foggy.yaml --weights yolov5s.pt
 ```
 
 ```bash
-Sim10(source) -> Cityscapes(target):  (only 'Car' class)
+Sim10(source):  (only 'Car' class)
 python train.py --name sim10k --epochs 20 --data data/sim10k2cityscapes.yaml --weights yolov5s.pt
 ```
 
 ```bash
-KITTI(source) -> Cityscapes(target):  (only 'Car' class)
+KITTI(source):  (only 'Car' class)
 python train.py --name kitti --epochs 20 --data data/kitti2cityscapes.yaml --weights yolov5s.pt
 ```
 
