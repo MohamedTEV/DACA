@@ -110,7 +110,6 @@ python val.py  --name exp  --data data/kitti2cityscapes.yaml  --weights runs/tra
 
 # Citation
 
-Please consider citing our paper in your publications if the project helps your research.
 ```
 @inproceedings{mattolin2023confmix,
   title={Detect, Augment, Compose, and Adapt: Four Steps for Unsupervised Domain Adaptation in Object Detection},
