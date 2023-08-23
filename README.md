@@ -29,9 +29,11 @@ conda create --name daca python=3.7
 conda activate daca
 pip install -r requirements.txt  
 ```
-Install pytorch & torchvision (for the right version please visit: https://pytorch.org/):
-pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 torchaudio==0.8.0 -f https://download.pytorch.org/whl/torch_stable.html
 
+Install pytorch & torchvision (for the right version please visit: https://pytorch.org/):
+```bash
+pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 torchaudio==0.8.0 -f https://download.pytorch.org/whl/torch_stable.html
+```
 
 # Datasets download & preparation:
 The datasets can be downloaded at the following sources. Please note that YOLO format is used for all the datasets.
