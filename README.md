@@ -35,7 +35,7 @@ pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 torchaudio==0.8.0 -f htt
 
 # Datasets download & preparation:
 The datasets can be downloaded at the following sources. Please note that YOLO format is used for all the datasets.
-  - Cityscapes and Foggy Cityscapes datasets can be downloaded at: [link](https://www.cityscapes-dataset.com/downloads/). 
+  - Cityscapes and Foggy Cityscapes datasets can be downloaded at: [Cityscapes/Foggy](https://www.cityscapes-dataset.com/downloads/). 
   - Sim10k dataset can be downloaded at: [Sim10k](https://fcav.engin.umich.edu/projects/driving-in-the-matrix).
   - KITTI dataset can be downloaded at: [KITTI](http://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=2d).
 
