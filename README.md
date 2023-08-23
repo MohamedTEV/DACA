@@ -33,7 +33,7 @@ Install pytorch & torchvision (for the right version please visit: https://pytor
 pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 torchaudio==0.8.0 -f https://download.pytorch.org/whl/torch_stable.html
 
 
-# Dataset (same as [ConfMix]([https://pages.github.com/)](https://github.com/giuliomattolin/ConfMix/tree/master))
+# Dataset (same as [ConfMix](https://pages.github.com/)](https://github.com/giuliomattolin/ConfMix/tree/master))
 We construct the training and testing set for the three benchmark settings, by performing the following steps:
 # install- Cityscapes -> Foggy Cityscapes
   - Download Cityscapes and Foggy Cityscapes dataset from the following [link](https://www.cityscapes-dataset.com/downloads/). Particularly, we use *leftImg8bit_trainvaltest.zip* for Cityscapes and *leftImg8bit_trainvaltest_foggy.zip* for FoggyCityscapes.
