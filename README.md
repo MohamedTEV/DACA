@@ -1,12 +1,12 @@
 # Detect, Augment, Compose, and Adapt: Four Steps for Unsupervised Domain Adaptation in Object Detection
 
 <p align="center">
-  <img style="width: 50%" src="pipeline/teaser.jpg">
+  <img style="width: 50%" src="pipeline/png">
 </p>
 <br>
 
 > **Detect, Augment, Compose, and Adapt: Four Steps for Unsupervised Domain Adaptation in Object Detection**<br>
-> Mohamed Lamine Mekhalfi, Davide Boscaini,Fabio Poiesi <br>
+> Mohamed Lamine Mekhalfi, Davide Boscaini, Fabio Poiesi <br>
 > **BMVC 2023**
 
 > Paper: [ArXiv](https://arxiv.org/abs/2210.11539) <br>
