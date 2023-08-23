@@ -11,7 +11,7 @@
 
 > Paper: [ArXiv](https://arxiv.org/abs/2210.11539) <br>
 
-> **Abstract:** *nsupervised domain adaptation (UDA) plays a crucial role in object detection when adapting a source-trained detector to a target domain without annotated data. In this paper, we propose a novel and effective four-step UDA approach that leverages self- supervision and trains source and target data concurrently. We harness self-supervised learning to mitigate the lack of ground truth in the target domain. Our method consists of the following steps: (1) identify the region with the highest-confidence set of detections in each target image, which serve as our pseudo-labels; (2) crop the identified region and generate a collection of its augmented versions; (3) combine these latter into a com- posite image; (4) adapt the network to the target domain using the composed image. Through extensive experiments under cross-camera, cross-weather, and synthetic-to-real scenarios, our approach achieves state-of-the-art performance, improving upon the near- est competitor by more than 2% in terms of mean Average Precision (mAP). The source code will be made publicly available upon publication.*
+> **Abstract:** *Unsupervised domain adaptation (UDA) plays a crucial role in object detection when adapting a source-trained detector to a target domain without annotated data. In this paper, we propose a novel and effective four-step UDA approach that leverages self- supervision and trains source and target data concurrently. We harness self-supervised learning to mitigate the lack of ground truth in the target domain. Our method consists of the following steps: (1) identify the region with the highest-confidence set of detections in each target image, which serve as our pseudo-labels; (2) crop the identified region and generate a collection of its augmented versions; (3) combine these latter into a com- posite image; (4) adapt the network to the target domain using the composed image. Through extensive experiments under cross-camera, cross-weather, and synthetic-to-real scenarios, our approach achieves state-of-the-art performance, improving upon the near- est competitor by more than 2% in terms of mean Average Precision (mAP). The source code will be made publicly available upon publication.*
 
 # Setup
 Clone repo:
@@ -45,133 +45,69 @@ The datasets can be downloaded at the following sources. Please note that YOLO f
 
 
 # Training
-
-To reproduce the experimental result, we recommend training the model with the following steps.
-
-Before training, please check `data/Cityscapes2Foggy.yaml`, `data/Sim10K2Cityscapes.yaml`, `data/KITTI2Cityscapes.yaml`, and enter the correct data paths.
-
-The model is trained in 2 successive phases:
-- **Phase 1**: Model pre-train
-- **Phase 2**: Adaptive learning
-
-## Phase 1: Model pre-train
-The first phase of training consists in the pre-training of the model on the source domain. Training can be performed by running the following bash script:
-
-Cityscapes -> Foggy Cityscapes:
-
+Training DACA undergoes two steps, namely (i) a pre-adaptation in which the detector is trained on the source dataset only, and (ii) adaptation in which the model departs from the weights of previous step and performs adaptation. Oracle score is regarded as an 'upper bound' performance where the model is trained on the target dataset using groundtruth. Each of the previous operations, besides the validation step, can be executed by running the following bash scripts:
+## pre-adaptation
 ```bash
-python train.py \
- --name cityscapes \
- --batch 2 \
- --img 600 \
- --epochs 20 \
- --data data/Cityscapes2Foggy.yaml \
- --weights yolov5s.pt
+Cityscapes(source) -> Foggy Cityscapes(target):
+python train.py --name cityscapes --epochs 20 --data data/cityscapes2foggy.yaml --weights yolov5s.pt
 ```
 
-Sim10k -> Cityscapes (car category only):
-
 ```bash
-python train.py \
- --name sim10k \
- --batch 2 \
- --img 600 \
- --epochs 20 \
- --data data/Sim10K2Cityscapes.yaml \
- --weights yolov5s.pt
+Sim10(source) -> Cityscapes(target):  (only 'Car' class)
+python train.py --name sim10k --epochs 20 --data data/sim10k2cityscapes.yaml --weights yolov5s.pt
 ```
 
-KITTI -> Cityscapes (car category only):
-
 ```bash
-python train.py \
- --name kitti \
- --batch 2 \
- --img 600 \
- --epochs 20 \
- --data data/KITTI2Cityscapes.yaml \
- --weights yolov5s.pt
+KITTI(source) -> Cityscapes(target):  (only 'Car' class)
+python train.py --name kitti --epochs 20 --data data/kitti2cityscapes.yaml --weights yolov5s.pt
 ```
 
-Qualitative results are saved under the `runs/train/{name}` directory, while checkpoints are saved under the `runs/train/{name}/weights` directory. Please note that in all our experiments we only consider the weights associated with the last training epoch, i.e. `last.pt`.
 
-## Phase 2: Adaptive learning
-The second phase of training consists in performing the adaptive learning. Training can be performed by running the following bash script:
-
-Cityscapes -> Foggy Cityscapes:
-
+## DACA-based adaptation:
+Cityscapes(source) -> Foggy Cityscapes(target):
 ```bash
-python uda_train.py \
- --name cityscapes2foggy \
- --batch 2 \
- --img 600 \
- --epochs 50 \
- --data data/Cityscapes2Foggy.yaml \
- --weights runs/train/cityscapes/weights/last.pt
+python uda_daca_train.py --name cityscapes2foggy_daca_All --epochs 50 --data data/cityscapes2foggy.yaml --weights runs/train/cityscapes/weights/last.pt
 ```
 
-Sim10k -> Cityscapes (car category only):
-
+Sim10(source) -> Cityscapes(target):  (only 'Car' class)
 ```bash
-python uda_train.py \
- --name sim10k2cityscapes \
- --batch 2 \
- --img 600 \
- --epochs 50 \
- --data data/Sim10K2Cityscapes.yaml \
- --weights runs/train/sim10k/weights/last.pt
+python uda_daca_train.py --name sim10k2cityscapes_daca_All --epochs 50 --data data/sim10k2cityscapes.yaml --weights runs/train/sim10k/weights/last.pt
 ```
 
-KITTI -> Cityscapes (car category only):
-
+KITTI(source) -> Cityscapes(target):  (only 'Car' class)
 ```bash
-python uda_train.py \
- --name kitti2cityscapes \
- --batch 2 \
- --img 600 \
- --epochs 50 \
- --data data/KITTI2Cityscapes.yaml \
- --weights runs/train/kitti/weights/last.pt
+python uda_daca_train.py --name kitti2cityscapes_daca_All --epochs 50 --data data/kitti2cityscapes.yaml --weights runs/train/kitti/weights/last.pt
 ```
 
-# Evaluation
-
-The trained models can be evaluated by running the following bash script:
-
-Cityscapes -> Foggy Cityscapes:
-
+## Oracle:
 ```bash
-python uda_val.py \
- --name cityscapes2foggy \
- --img 600 \
- --data data/Cityscapes2Foggy.yaml \
- --weights runs/train/cityscapes2foggy/weights/last.pt \
- --iou-thres 0.5
+python train.py --name oraclecityscapes --epochs 20 --data data/cityscapes.yaml --weights yolov5s.pt
 ```
 
-Sim10k -> Cityscapes (car category only):
-
 ```bash
-python uda_val.py \
- --name sim10k2cityscapes \
- --img 600 \
- --data data/Sim10K2Cityscapes.yaml \
- --weights runs/train/sim10k2cityscapes/weights/last.pt \
- --iou-thres 0.5
+python train.py --name oraclefoggy --epochs 20 --data data/foggycityscapes.yaml --weights yolov5s.pt
 ```
 
-KITTI -> Cityscapes (car category only):
 
+# Evaluation (DACA adaptation)
+The following bash commands evaluate the DACA-adapted models, to evaluation pre-adapted models, change the weights path accordingly:
+
+Cityscapes(source) -> Foggy Cityscapes(target):
 ```bash
-python uda_val.py \
- --name kitti2cityscapes \
- --img 600 \
- --data data/KITTI2Cityscapes.yaml \
- --weights runs/train/kitti2cityscapes/weights/last.pt \
- --iou-thres 0.5
+python val.py  --name exp  --data data/cityscapes2foggy.yaml  --weights runs/train/cityscapes2foggy/weights/last.pt
 ```
 
-Please note that in all our experiments we only consider the weights associated with the last training epoch, i.e. `last.pt`.
+Sim10(source) -> Cityscapes(target):  (only 'Car' class)
+```bash
+python val.py  --name exp  --data data/sim10k2cityscapes.yaml  --weights runs/train/sim10k2cityscapes/weights/last.pt
+```
+
+KITTI(source) -> Cityscapes(target):  (only 'Car' class)
+```bash
+python val.py  --name exp  --data data/kitti2cityscapes.yaml  --weights runs/train/kitti2cityscapes/weights/last.pt
+
+```
+
 
 # Citation
 
