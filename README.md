@@ -1,19 +1,17 @@
-# ConfMix: Unsupervised Domain Adaptation for Object Detection via Confidence-based Mixing
+# Detect, Augment, Compose, and Adapt: Four Steps for Unsupervised Domain Adaptation in Object Detection
 
 <p align="center">
-  <img style="width: 50%" src="media/teaser.jpg">
+  <img style="width: 50%" src="pipeline/teaser.jpg">
 </p>
 <br>
 
-> **ConfMix: Unsupervised Domain Adaptation for Object Detection via Confidence-based Mixing**<br>
-> Giulio Mattolin, Luca Zanella, [Yiming Wang](https://www.yimingwang.it/), [Elisa Ricci](http://elisaricci.eu/) <br>
-> **WACV 2023**
+> **Detect, Augment, Compose, and Adapt: Four Steps for Unsupervised Domain Adaptation in Object Detection**<br>
+> Mohamed Lamine Mekhalfi, Davide Boscaini,Fabio Poiesi <br>
+> **BMVC 2023**
 
 > Paper: [ArXiv](https://arxiv.org/abs/2210.11539) <br>
 
-> **Abstract:** *Unsupervised Domain Adaptation (UDA) for object detection aims to adapt a model trained on a source domain to detect instances from a new target domain for which annotations are not available.
-Different from traditional approaches, we propose ConfMix, the first method that introduces a sample mixing strategy based on region-level detection confidence for adaptive object detector learning. We mix the local region of the target sample that corresponds to the most confident pseudo detections with a source image, and apply an additional consistency loss term to gradually adapt towards the target data distribution. In order to robustly define a confidence score for a region, we exploit the confidence score per pseudo detection that accounts for both the detector-dependent confidence and the bounding box uncertainty.
-Moreover, we propose a novel pseudo labelling scheme that progressively filters the pseudo target detections using the confidence metric that varies from a loose to strict manner along the training. We perform extensive experiments with three datasets, achieving state-of-the-art performance in two of them and approaching the supervised target model performance in the other.*
+> **Abstract:** *nsupervised domain adaptation (UDA) plays a crucial role in object detection when adapting a source-trained detector to a target domain without annotated data. In this paper, we propose a novel and effective four-step UDA approach that leverages self- supervision and trains source and target data concurrently. We harness self-supervised learning to mitigate the lack of ground truth in the target domain. Our method consists of the following steps: (1) identify the region with the highest-confidence set of detections in each target image, which serve as our pseudo-labels; (2) crop the identified region and generate a collection of its augmented versions; (3) combine these latter into a com- posite image; (4) adapt the network to the target domain using the composed image. Through extensive experiments under cross-camera, cross-weather, and synthetic-to-real scenarios, our approach achieves state-of-the-art performance, improving upon the near- est competitor by more than 2% in terms of mean Average Precision (mAP). The source code will be made publicly available upon publication.*
 
 # Installation
 
