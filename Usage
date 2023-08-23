@@ -1,0 +1,39 @@
+
+(Pre-adaptation):
+python train.py --name kitti --epochs 20 --data data/kitti2cityscapes.yaml --weights yolov5s.pt
+python train.py --name sim10k --epochs 20 --data data/sim10k2cityscapes.yaml --weights yolov5s.pt
+python train.py --name cityscapes --epochs 20 --data data/cityscapes2foggy.yaml --weights yolov5s.pt
+
+Training (Oracles):
+python train.py --name oraclecityscapes --epochs 20 --data data/cityscapes.yaml --weights yolov5s.pt
+python train.py --name oraclefoggy --epochs 20 --data data/foggycityscapes.yaml --weights yolov5s.pt
+
+
+
+
+=============================================================================================================================================
+(DACA-based adaptation):
+python uda_daca_train.py --name kitti2cityscapes_daca_All --epochs 50 --data data/kitti2cityscapes.yaml --weights runs/train/kitti/weights/last.pt
+python uda_daca_train.py --name sim10k2cityscapes_daca_All --epochs 50 --data data/sim10k2cityscapes.yaml --weights runs/train/sim10k/weights/last.pt
+python uda_daca_train.py --name cityscapes2foggy_daca_All --epochs 50 --data data/cityscapes2foggy.yaml --weights runs/train/cityscapes/weights/last.pt
+
+
+
+
+
+
+=============================================================================================================================================
+Validation:
+python val.py  --name exp  --data data/kitti2cityscapes.yaml  --weights runs/train/kitti/weights/last.pt
+
+
+
+
+
+
+
+
+
+
+
+
