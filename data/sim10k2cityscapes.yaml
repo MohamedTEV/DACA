@@ -1,0 +1,29 @@
+train: # train images
+  - ../sim10k/images/train
+val: # val images
+  - ../cityscapes/images/val/frankfurt
+  - ../cityscapes/images/val/lindau
+  - ../cityscapes/images/val/munster
+uda: 
+  - ../cityscapes/images/train/aachen
+  - ../cityscapes/images/train/bochum
+  - ../cityscapes/images/train/bremen
+  - ../cityscapes/images/train/cologne
+  - ../cityscapes/images/train/darmstadt
+  - ../cityscapes/images/train/dusseldorf
+  - ../cityscapes/images/train/erfurt
+  - ../cityscapes/images/train/hamburg
+  - ../cityscapes/images/train/hanover
+  - ../cityscapes/images/train/jena
+  - ../cityscapes/images/train/krefeld
+  - ../cityscapes/images/train/monchengladbach
+  - ../cityscapes/images/train/strasbourg
+  - ../cityscapes/images/train/stuttgart
+  - ../cityscapes/images/train/tubingen
+  - ../cityscapes/images/train/ulm
+  - ../cityscapes/images/train/weimar
+  - ../cityscapes/images/train/zurich
+
+
+nc: 1 # number of classes
+names: ['car'] # class names

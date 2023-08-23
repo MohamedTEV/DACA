@@ -1,0 +1,45 @@
+train:  # train images 
+  - ../cityscapes/images/train/aachen
+  - ../cityscapes/images/train/bochum
+  - ../cityscapes/images/train/bremen
+  - ../cityscapes/images/train/cologne
+  - ../cityscapes/images/train/darmstadt
+  - ../cityscapes/images/train/dusseldorf
+  - ../cityscapes/images/train/erfurt
+  - ../cityscapes/images/train/hamburg
+  - ../cityscapes/images/train/hanover
+  - ../cityscapes/images/train/jena
+  - ../cityscapes/images/train/krefeld
+  - ../cityscapes/images/train/monchengladbach
+  - ../cityscapes/images/train/strasbourg
+  - ../cityscapes/images/train/stuttgart
+  - ../cityscapes/images/train/tubingen
+  - ../cityscapes/images/train/ulm
+  - ../cityscapes/images/train/weimar
+  - ../cityscapes/images/train/zurich
+val:  # val images 
+  - ../foggycityscapes/images/val/frankfurt
+  - ../foggycityscapes/images/val/lindau
+  - ../foggycityscapes/images/val/munster
+uda: 
+  - ../foggycityscapes/images/train/aachen
+  - ../foggycityscapes/images/train/bochum
+  - ../foggycityscapes/images/train/bremen
+  - ../foggycityscapes/images/train/cologne
+  - ../foggycityscapes/images/train/darmstadt
+  - ../foggycityscapes/images/train/dusseldorf
+  - ../foggycityscapes/images/train/erfurt
+  - ../foggycityscapes/images/train/hamburg
+  - ../foggycityscapes/images/train/hanover
+  - ../foggycityscapes/images/train/jena
+  - ../foggycityscapes/images/train/krefeld
+  - ../foggycityscapes/images/train/monchengladbach
+  - ../foggycityscapes/images/train/strasbourg
+  - ../foggycityscapes/images/train/stuttgart
+  - ../foggycityscapes/images/train/tubingen
+  - ../foggycityscapes/images/train/ulm
+  - ../foggycityscapes/images/train/weimar
+  - ../foggycityscapes/images/train/zurich
+
+nc: 8 # number of classes
+names: ['person', 'car', 'train', 'rider', 'truck', 'motorcycle', 'bicycle', 'bus'] # class names

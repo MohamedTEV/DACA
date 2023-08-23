@@ -1,0 +1,26 @@
+train:  # train images 
+  - ../foggycityscapes/images/train/aachen
+  - ../foggycityscapes/images/train/bochum
+  - ../foggycityscapes/images/images/train/bremen
+  - ../foggycityscapes/images/images/train/cologne
+  - ../foggycityscapes/images/images/train/darmstadt
+  - ../foggycityscapes/images/images/train/dusseldorf
+  - ../foggycityscapes/images/images/train/erfurt
+  - ../foggycityscapes/images/images/train/hamburg
+  - ../foggycityscapes/images/images/train/hanover
+  - ../foggycityscapes/images/images/train/jena
+  - ../foggycityscapes/images/images/train/krefeld
+  - ../foggycityscapes/images/images/train/monchengladbach
+  - ../foggycityscapes/images/images/train/strasbourg
+  - ../foggycityscapes/images/images/train/stuttgart
+  - ../foggycityscapes/images/images/train/tubingen
+  - ../foggycityscapes/images/images/train/ulm
+  - ../foggycityscapes/images/images/train/weimar
+  - ../foggycityscapes/images/images/train/zurich
+val:  # val images 
+  - ../foggycityscapes/images/val/frankfurt
+  - ../foggycityscapes/images/val/lindau
+  - ../foggycityscapes/images/val/munster
+
+nc: 8 # number of classes
+names: ['person', 'car', 'train', 'rider', 'truck', 'motorcycle', 'bicycle', 'bus'] # class names

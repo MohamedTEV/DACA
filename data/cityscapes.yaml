@@ -1,0 +1,26 @@
+train:  # train images 
+  - ../cityscapes/images/train/aachen
+  - ../Datasets/cityscapes/images/train/bochum
+  - ../Datasets/cityscapes/images/train/bremen
+  - ../Datasets/cityscapes/images/train/cologne
+  - ../Datasets/cityscapes/images/train/darmstadt
+  - ../Datasets/cityscapes/images/train/dusseldorf
+  - ../Datasets/cityscapes/images/train/erfurt
+  - ../Datasets/cityscapes/images/train/hamburg
+  - ../Datasets/cityscapes/images/train/hanover
+  - ../Datasets/cityscapes/images/train/jena
+  - ../Datasets/cityscapes/images/train/krefeld
+  - ../Datasets/cityscapes/images/train/monchengladbach
+  - ../Datasets/cityscapes/images/train/strasbourg
+  - ../Datasets/cityscapes/images/train/stuttgart
+  - ../Datasets/cityscapes/images/train/tubingen
+  - ../Datasets/cityscapes/images/train/ulm
+  - ../Datasets/cityscapes/images/train/weimar
+  - ../Datasets/cityscapes/images/train/zurich
+val:  # val images 
+  - ../Datasets/cityscapes/images/val/frankfurt
+  - ../Datasets/cityscapes/images/val/lindau
+  - ../Datasets/cityscapes/images/val/munster
+
+nc: 1 # number of classes
+names: ['car'] # class names
