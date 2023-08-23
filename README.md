@@ -45,7 +45,7 @@ The datasets can be downloaded at the following sources. Please note that YOLO f
 
 
 # Training
-Training DACA undergoes two steps, namely (i) a pre-adaptation in which the detector is trained on the source dataset only, and (ii) adaptation in which the model departs from the weights of previous step and performs adaptation. Oracle score is regarded as an 'upper bound' performance where the model is trained on the target dataset using groundtruth. Each of the previous operations, besides the validation step, can be executed by running the following bash scripts:
+Training DACA undergoes two steps, namely (i) a pre-adaptation in which the detector is trained on the source dataset only, and (ii) adaptation in which the model departs from the weights of previous step and performs adaptation. Oracle score is regarded as an 'upper bound' performance where the model is trained on the target dataset using groundtruth. For the pretrained YOLO weights, please visit [YOLOv5](https://github.com/ultralytics/yolov5/releases). Each of the previous operations, besides the validation step, can be executed by running the following bash scripts:
 ## pre-adaptation
 ```bash
 Cityscapes(source) -> Foggy Cityscapes(target):
