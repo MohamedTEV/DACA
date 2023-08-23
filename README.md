@@ -33,23 +33,12 @@ Install pytorch & torchvision (for the right version please visit: https://pytor
 pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 torchaudio==0.8.0 -f https://download.pytorch.org/whl/torch_stable.html
 
 
-# Dataset (same as [ConfMix](https://pages.github.com/)](https://github.com/giuliomattolin/ConfMix/tree/master))
-We construct the training and testing set for the three benchmark settings, by performing the following steps:
-# install- Cityscapes -> Foggy Cityscapes
-  - Download Cityscapes and Foggy Cityscapes dataset from the following [link](https://www.cityscapes-dataset.com/downloads/). Particularly, we use *leftImg8bit_trainvaltest.zip* for Cityscapes and *leftImg8bit_trainvaltest_foggy.zip* for FoggyCityscapes.
-  - Download and extract the converted annotation from the following links: [Cityscapes (YOLO format)](https://drive.google.com/file/d/1bwnNJraKO7ui1Kvl1kPVKdW6xafy1-sr/view?usp=sharing) and [Foggy Cityscapes (YOLO format)](https://drive.google.com/drive/folders/1nTtNXPNCUD7aDQAT3SLgc4kqfL7S-xX7?usp=sharing) move the them to `Cityscapes/labels/train` and `FoggyCityscapes/labels/train`, `FoggyCityscapes/labels/val` directories.
-  - Extract the training sets from *leftImg8bit_trainvaltest.zip*, then move the folder `leftImg8bit/train/` to `Cityscapes/images/train` directory.
-  - Extract the training and validation set from *leftImg8bit_trainvaltest_foggy.zip*, then move the folder `leftImg8bit_foggy/train/` and `leftImg8bit_foggy/val/` to `FoggyCityscapes/images/train` and `FoggyCityscapes/images/val` directory, respectively.
-- Sim10k -> Cityscapes (car category only)
-  - Download Sim10k dataset and Cityscapes dataset from the following links: [Sim10k](https://fcav.engin.umich.edu/projects/driving-in-the-matrix) and [Cityscapes](https://www.cityscapes-dataset.com/downloads/). Particularly, we use *repro_10k_images.tgz* and *repro_10k_annotations.tgz* for Sim10k and *leftImg8bit_trainvaltest.zip* for Cityscapes.
-  - Download and extract the converted annotation from the following links: [Sim10k (YOLO format)](https://drive.google.com/file/d/1_PtWXTjM2gwNjLvj9sFLiCJ7n25b8Ugy/view?usp=sharing) and [Cityscapes (YOLO format)](https://drive.google.com/drive/folders/1jQK1mXEgSUvINJBn3lMEWtXTS4RkoznW?usp=sharing) and move the them to `Sim10K/labels/train` and `Cityscapes/labels/train`, `Cityscapes/labels/val` directories.
-  - Extract the training set from *repro_10k_images.tgz* and *repro_10k_annotations.tgz*, then move all images under `VOC2012/JPEGImages/` to `Sim10k/images/train` directory
-  - Extract the training and validation set from *leftImg8bit_trainvaltest.zip*, then move the folder `leftImg8bit/train/` and `leftImg8bit/val/` to `Cityscapes/images/train` and `Cityscapes/images/val` directory, respectively.
-- KITTI -> Cityscapes (car category only)
-  - Download KITTI dataset and Cityscapes dataset from the following links: [KITTI](http://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=2d) and [Cityscapes](https://www.cityscapes-dataset.com/downloads/). Particularly, we use *data_object_image_2.zip* for KITTI and *leftImg8bit_trainvaltest.zip* for Cityscapes.
-  - Download and extract the converted annotation from the following links: [KITTI (YOLO format)](https://drive.google.com/file/d/1x9MPnKiwvCFmEv4359NSTDYLEGu5wb_8/view?usp=sharing) and [Cityscapes (YOLO format)](https://drive.google.com/drive/folders/1jQK1mXEgSUvINJBn3lMEWtXTS4RkoznW?usp=sharing) and move the them to `KITTI/labels/train` and `Cityscapes/labels/train`, `Cityscapes/labels/val` directories.
-  - Extract the training set from *data_object_image_2.zip*, then move all images under `training/image_2/` to `KITTI/images/train` directory.
-  - Extract the training and validation set from *leftImg8bit_trainvaltest.zip*, then move the folder `leftImg8bit/train/` and `leftImg8bit/val/` to `Cityscapes/images/train` and `Cityscapes/images/val` directory, respectively.
+# Datasets download & preparation:
+The datasets can be downloaded at the following sources. Please note that YOLO format is used for all the datasets.
+  - Cityscapes and Foggy Cityscapes datasets can be downloaded at: [link](https://www.cityscapes-dataset.com/downloads/). 
+  - Sim10k dataset can be downloaded at: [Sim10k](https://fcav.engin.umich.edu/projects/driving-in-the-matrix).
+  - KITTI dataset can be downloaded at: [KITTI](http://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=2d).
+
 
 
 
