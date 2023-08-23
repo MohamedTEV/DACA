@@ -13,15 +13,14 @@
 
 > **Abstract:** *nsupervised domain adaptation (UDA) plays a crucial role in object detection when adapting a source-trained detector to a target domain without annotated data. In this paper, we propose a novel and effective four-step UDA approach that leverages self- supervision and trains source and target data concurrently. We harness self-supervised learning to mitigate the lack of ground truth in the target domain. Our method consists of the following steps: (1) identify the region with the highest-confidence set of detections in each target image, which serve as our pseudo-labels; (2) crop the identified region and generate a collection of its augmented versions; (3) combine these latter into a com- posite image; (4) adapt the network to the target domain using the composed image. Through extensive experiments under cross-camera, cross-weather, and synthetic-to-real scenarios, our approach achieves state-of-the-art performance, improving upon the near- est competitor by more than 2% in terms of mean Average Precision (mAP). The source code will be made publicly available upon publication.*
 
-# Installation
-
-We recommend the use of a Linux machine equipped with CUDA compatible GPUs.
-The execution environment can be installed through Conda or Docker.
-
+# Setup
 Clone repo:
 ```bash
-git clone https://github.com/giuliomattolin/ConfMix  # clone
-cd ConfMix
+git clone https://github.com/MohamedTEV/DACA.git
+```
+Navigate to the main directory:
+```bash
+cd DACA
 ```
 
 ## Option 1: Conda
