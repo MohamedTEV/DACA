@@ -9,7 +9,7 @@
 > Mohamed Lamine Mekhalfi, Davide Boscaini, Fabio Poiesi <br>
 > **BMVC 2023**
 
-> Paper: [ArXiv](https://arxiv.org/abs/2210.11539) <br>
+> Paper: [ArXiv](TBA) <br>
 
 > **Abstract:** *Unsupervised domain adaptation (UDA) plays a crucial role in object detection when adapting a source-trained detector to a target domain without annotated data. In this paper, we propose a novel and effective four-step UDA approach that leverages self- supervision and trains source and target data concurrently. We harness self-supervised learning to mitigate the lack of ground truth in the target domain. Our method consists of the following steps: (1) identify the region with the highest-confidence set of detections in each target image, which serve as our pseudo-labels; (2) crop the identified region and generate a collection of its augmented versions; (3) combine these latter into a com- posite image; (4) adapt the network to the target domain using the composed image. Through extensive experiments under cross-camera, cross-weather, and synthetic-to-real scenarios, our approach achieves state-of-the-art performance, improving upon the near- est competitor by more than 2% in terms of mean Average Precision (mAP). The source code will be made publicly available upon publication.*
 
@@ -40,8 +40,7 @@ The datasets can be downloaded at the following sources. Please note that YOLO f
   - Cityscapes and Foggy Cityscapes datasets can be downloaded at: [Cityscapes/Foggy](https://www.cityscapes-dataset.com/downloads/). 
   - Sim10k dataset can be downloaded at: [Sim10k](https://fcav.engin.umich.edu/projects/driving-in-the-matrix).
   - KITTI dataset can be downloaded at: [KITTI](http://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=2d).
-
-
+The images should be placed inside dataset/images/train (e.g., cityscapes/images/train) and the labels should be placed inside dataset/labels/train (e.g., cityscapes/labels/train). If the images are saved in a different destination, change the .yaml files inside ./data accordingly. 
 
 
 # Training
@@ -114,10 +113,9 @@ python val.py  --name exp  --data data/kitti2cityscapes.yaml  --weights runs/tra
 Please consider citing our paper in your publications if the project helps your research.
 ```
 @inproceedings{mattolin2023confmix,
-  title={ConfMix: Unsupervised Domain Adaptation for Object Detection via Confidence-based Mixing},
-  author={Mattolin, Giulio and Zanella, Luca and Ricci, Elisa and Wang, Yiming},
-  booktitle={Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision},
-  pages={423--433},
+  title={Detect, Augment, Compose, and Adapt: Four Steps for Unsupervised Domain Adaptation in Object Detection},
+  author={Mekhalfi, Mohamed Lamine and Boscaini, Davide and Poiesi, Fabio},
+  booktitle={British Machine Vision Conference},
   year={2023}
 }
 ```
