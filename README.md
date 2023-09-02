@@ -112,7 +112,7 @@ python val.py  --name exp  --data data/kitti2cityscapes.yaml  --weights runs/tra
 # Citation
 
 ```
-@inproceedings{mattolin2023confmix,
+@inproceedings{bmvc23_daca,
   title={Detect, Augment, Compose, and Adapt: Four Steps for Unsupervised Domain Adaptation in Object Detection},
   author={Mekhalfi, Mohamed Lamine and Boscaini, Davide and Poiesi, Fabio},
   booktitle={British Machine Vision Conference},
